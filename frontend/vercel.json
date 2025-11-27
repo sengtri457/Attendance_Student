@@ -2,14 +2,15 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/**/*",
+      "src": "dist/frontend/server/server.mjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/frontend/browser/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+    { "src": "/(.*)", "dest": "dist/frontend/server/server.mjs" }
   ]
 }
